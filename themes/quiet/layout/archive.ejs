@@ -1,0 +1,10 @@
+<section class="section archive-page">
+  <div class="section-heading"><h1>文章归档</h1><p>共 <%= site.posts.length %> 篇</p></div>
+  <div class="archive-list">
+    <% page.posts.each(function(post) { %>
+      <a class="archive-item" href="<%- url_for(post.path) %>">
+        <time><%= date(post.date, 'YYYY.MM.DD') %></time><span><%= post.title %></span>
+      </a>
+    <% }); %>
+  </div>
+</section>

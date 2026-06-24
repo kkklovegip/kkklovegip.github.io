@@ -1,6 +1,7 @@
 const root = document.documentElement;
 const themeButton = document.querySelector(".theme-toggle");
-const savedTheme = localStorage.getItem("theme");
+let savedTheme = null;
+try { savedTheme = localStorage.getItem("theme"); } catch {}
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
@@ -10,7 +11,8 @@ if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
 themeButton?.addEventListener("click", () => {
   const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
   root.dataset.theme = nextTheme;
-  localStorage.setItem("theme", nextTheme);
+  try { localStorage.setItem("theme", nextTheme); } catch {}
 });
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+const year = document.querySelector("#year");
+if (year) year.textContent = new Date().getFullYear();

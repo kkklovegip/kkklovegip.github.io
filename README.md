@@ -1,17 +1,17 @@
-# 微光手记
+# 微光手记 · Hexo 博客
 
-一个简洁、响应式的中文个人博客模板，支持深色模式，无需构建工具，可直接部署到 GitHub Pages。
+基于 Hexo 的中文个人博客，使用自定义 `quiet` 主题，通过 GitHub Actions 自动部署到 GitHub Pages。
 
-## 访问
--https://kkklovegip.github.io
+## 常用命令
 
-## 修改内容
+```powershell
+npm.cmd install
+npm.cmd run server
+npm.cmd run build
+```
 
-- 在 `index.html` 中替换名字、自我介绍、文章和联系方式。
-- 复制 `article.html` 来新增文章，再修改首页文章卡片的链接。
-- 在 `styles.css` 顶部修改颜色变量，可快速更换整站配色。
-- 将 `https://github.com/your-username` 替换为你的 GitHub 地址。
+文章位于 `source/_posts/`，使用 Markdown 编写。
 
-## 部署
+第一次使用、代码结构、写文章和 GitHub 部署方法请阅读：[Hexo 零基础教程](HEXO_GUIDE.md)。
 
-推送到 GitHub 仓库后，在仓库的 **Settings → Pages** 中将来源设置为 **Deploy from a branch**，选择 `main` 分支和 `/ (root)` 目录并保存。
+线上地址：<https://kkklovegip.github.io>

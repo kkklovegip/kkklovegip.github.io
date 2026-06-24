@@ -1,0 +1,26 @@
+<section class="hero" aria-labelledby="hero-title">
+  <p class="eyebrow">你好，欢迎来到我的博客</p>
+  <h1 id="hero-title">记录好奇，<br />也记录生活。</h1>
+  <p class="hero-copy"><%= config.description %></p>
+  <a class="text-link" href="#articles">开始阅读 <span>→</span></a>
+</section>
+
+<section class="articles section" id="articles" aria-labelledby="articles-title">
+  <div class="section-heading"><h2 id="articles-title">最近文章</h2><p>偶尔更新，认真生活。</p></div>
+  <div class="article-list">
+    <% page.posts.each(function(post, index) { %>
+      <article class="article-card<%= index === 0 ? ' featured' : '' %>">
+        <div class="article-meta">
+          <span><%= post.categories.length ? post.categories.first().name : config.default_category %></span>
+          <time datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'YYYY.MM.DD') %></time>
+        </div>
+        <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
+        <p><%= post.description || strip_html(post.excerpt).substring(0, 100) %></p>
+        <a class="card-link" href="<%- url_for(post.path) %>">阅读全文 →</a>
+      </article>
+    <% }); %>
+  </div>
+  <% if (page.total > 1) { %>
+    <nav class="pagination"><%- paginator({ prev_text: '← 上一页', next_text: '下一页 →' }) %></nav>
+  <% } %>
+</section>
