@@ -2,15 +2,8 @@
 
 一个简洁、响应式的中文个人博客模板，支持深色模式，无需构建工具，可直接部署到 GitHub Pages。
 
-## 本地预览
-
-直接用浏览器打开 `index.html`，或在本目录启动静态服务器：
-
-```powershell
-python -m http.server 8000
-```
-
-然后访问 <http://localhost:8000>。
+## 访问
+-https://kkklovegip.github.io
 
 ## 修改内容
 
