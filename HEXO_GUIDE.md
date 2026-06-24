@@ -7,7 +7,7 @@ Hexo 是一个静态博客生成器。你只需要在 `source/_posts` 中写 Mar
 这个项目的工作方式是：
 
 ```text
-Markdown 文章 + Hexo 配置 + quiet 主题
+Markdown 文章 + Hexo 配置 + Butterfly 主题
                  ↓
          Hexo 生成 public 文件夹
                  ↓
@@ -32,9 +32,11 @@ codex_blog/
 │  ├─ _posts/                  Markdown 文章
 │  └─ images/                  文章图片
 ├─ scaffolds/                  新建文章时使用的模板
-├─ themes/quiet/
-│  ├─ layout/                  首页、文章页和归档页模板
-│  └─ source/                  主题 CSS 与 JavaScript
+├─ themes/butterfly/           压缩包中完整的 Butterfly 5.5.5 主题
+│  ├─ layout/                  Pug 页面模板
+│  ├─ source/                  Stylus、JavaScript、图标和图片
+│  ├─ languages/               中文等语言文件
+│  └─ _config.yml              Butterfly 主题设置
 ├─ .github/workflows/pages.yml GitHub 自动构建与部署流程
 ├─ README.md                   项目简介
 └─ HEXO_GUIDE.md               本教程
@@ -193,43 +195,29 @@ url: https://kkklovegip.github.io
 - 冒号后必须保留一个空格。
 - `url` 已对应当前 GitHub Pages 地址，不要随意改变。
 
-主题菜单和 GitHub 地址位于 `themes/quiet/_config.yml`。
+主题菜单、头像、首页图片、侧边栏和 GitHub 地址位于 `themes/butterfly/_config.yml`。这个文件来自你提供的 `hexo-theme-butterfly-dev.zip`，当前版本为 5.5.5。
 
 ## 十、主题代码组成
 
-### HTML/EJS 模板
+### HTML/Pug 模板
 
-`themes/quiet/layout` 中的 `.ejs` 文件最终会生成 HTML：
+`themes/butterfly/layout` 中的 `.pug` 文件最终会生成 HTML：
 
-- `layout.ejs`：所有页面共有的页头、导航和页脚。
-- `index.ejs`：首页及自动文章列表。
-- `post.ejs`：每篇文章的详情页。
-- `archive.ejs`：归档、分类和标签列表。
-- `page.ejs`：普通独立页面。
+- `index.pug`：首页文章列表。
+- `post.pug`：文章详情页。
+- `archive.pug`：归档页。
+- `category.pug` 和 `tag.pug`：分类与标签页。
+- `includes/`：导航、页脚、侧边栏、评论等可复用组件。
 
-EJS 中的：
-
-```ejs
-<%= post.title %>
-```
-
-表示输出文章标题。`page.posts.each(...)` 会遍历全部文章，因此新增 Markdown 后无需手动修改首页。
+Pug 使用缩进表示 HTML 的层级。Butterfly 会自动遍历 Hexo 中的文章，因此新增 Markdown 后无需修改首页模板。
 
 ### CSS 样式
 
-`themes/quiet/source/css/style.css` 控制颜色、字体、布局和手机适配。开头的变量控制主要配色：
-
-```css
-:root {
-  --bg: #f4f1e9;
-  --text: #1b201d;
-  --accent: #d95f3b;
-}
-```
+Butterfly 使用 Stylus 编写样式，文件位于 `themes/butterfly/source/css/`。Hexo 构建时，`hexo-renderer-stylus` 会将它们转换成浏览器能够读取的 CSS。
 
 ### JavaScript
 
-`themes/quiet/source/js/theme.js` 负责深色模式和页脚年份。写文章不需要修改它。
+`themes/butterfly/source/js/` 包含导航、侧边栏、图片预览、代码块等交互功能。写文章不需要修改这些文件。
 
 ## 十一、检查构建
 
