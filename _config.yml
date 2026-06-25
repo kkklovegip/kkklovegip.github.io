@@ -1,6 +1,6 @@
-title: 微光手记
-subtitle: 记录好奇，也记录生活
-description: 这里写代码、设计、阅读，以及那些值得慢下来想一想的小事。
+title: 随想
+subtitle: 嵌入式学习，考研学习，汉化相关
+description: 这里写代码、设计、汉化，以及那些值得慢下来想一想的小事。
 keywords: 博客,生活,技术,阅读
 author: kkklovegip
 language: zh-CN
@@ -58,3 +58,9 @@ theme: butterfly
 
 deploy:
   type: ""
+
+search:
+  path: search.json
+  field: post
+  content: true
+  format: striptags

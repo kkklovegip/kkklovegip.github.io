@@ -11,7 +11,7 @@
 
 nav:
   # Navigation bar logo image
-  logo:
+  logo: /images/logo.png
   display_title: true
   display_post_title: true
   # Whether to fix navigation bar
@@ -22,6 +22,7 @@ menu:
   归档: /archives/ || fas fa-archive
   分类: /categories/ || fas fa-folder-open
   标签: /tags/ || fas fa-tags
+  相关网站: /link/ || fas fa-link
   关于: /about/ || fas fa-user
 
 # --------------------------------------
@@ -48,53 +49,54 @@ code_blocks:
 #   icon: link || the description || color
 social:
   fab fa-github: https://github.com/kkklovegip || Github || '#24292e'
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
+  fas fa-envelope: mailto:wuxie305@qq.com || Email || '#4a7dbe'
+  fas fa-user: https://space.bilibili.com/66430484?spm_id_from=333.1007.0.0 || bilibili || '#4a7dbe'
 
 # --------------------------------------
 # Image Settings
 # --------------------------------------
 
-favicon: /img/favicon.ico
+favicon: /images/logo.ico
 
 avatar:
-  img: /img/butterfly-icon.png
+  img: /images/logo.png
   effect: false
 
 # Disable all banner images
 disable_top_img: false
 
 # If the banner of page not setting, it will show the default_top_img
-default_top_img:
+default_top_img: /images/horizontal.jpg
 
 # The banner image of index page
-index_img:
+index_img: /images/top.jpg
 
 # The banner image of archive page
-archive_img:
+archive_img: 
 
 # Note: tag page, not tags page
-tag_img:
+tag_img: 
 
 # The banner image of tag page, you can set the banner image for each tag
 # Format:
 #  - tag name: xxxxx
-tag_per_img:
+tag_per_img: 
 
 # Note: category page, not categories page
-category_img:
+category_img: 
 
 # The banner image of category page, you can set the banner image for each category
 # Format:
 #  - category name: xxxxx
-category_per_img:
+category_per_img: 
 
 # The background image of footer
-footer_img: false
+footer_img: transparent
 
 # Website Background
 # Can set it to color, image URL or an array containing colors and/or image URLs
 # If an array is provided, a random background will be selected from the array on each load
-background:
+background: /images/background.png
 
 cover:
   # Disable the cover or not
@@ -102,7 +104,7 @@ cover:
   aside_enable: true
   archives_enable: true
   # When cover is not set, the default cover is displayed
-  default_cover:
+  default_cover: /images/random.jpg
     # - xxx.jpg
 
 # Replace Broken Images
@@ -120,7 +122,7 @@ post_meta:
   # Home Page
   page:
     # Choose: created / updated / both
-    date_type: created
+    date_type: updated
     # Choose: date / relative
     date_format: date
     categories: true
@@ -166,8 +168,8 @@ subtitle:
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
   sub:
-    - 记录好奇，也记录生活
-    - 偶尔更新，认真生活
+    - 没有一个困难无法跨越，没有一个明天没有未来
+    - 在困顿中寻找人生的真谛，在绝望中看见希望
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
@@ -241,7 +243,7 @@ related_post:
 # 1: The 'next post' will link to old post
 # 2: The 'next post' will link to new post
 # false: disable pagination
-post_pagination: 1
+post_pagination: 2
 
 # Displays outdated notice for a post
 noticeOutdate:
@@ -262,12 +264,12 @@ footer:
   nav:
   owner:
     enable: true
-    since: 2025
+    since: 2026/06/24
   # Copyright of theme and framework
   copyright:
     enable: true
     version: true
-  custom_text:
+  custom_text: 此网站所有内容资源仅用作学习交流，若有侵权请右上角联系作者邮箱
 
 # --------------------------------------
 # Aside Settings
@@ -295,7 +297,9 @@ aside:
       link: https://github.com/xxxxxx
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: 
+    - 网站链接：kkklovegip.github.io
+    - 此网站仅作学习交流用
   card_recent_post:
     enable: true
     # If set 0 will show all
@@ -318,7 +322,7 @@ aside:
     expand: none
     sort_order:
   card_tags:
-    enable: true
+    enable: false
     # If set 0 will show all
     limit: 40
     color: false
@@ -329,7 +333,7 @@ aside:
     order: 1
     sort_order:
   card_archives:
-    enable: true
+    enable: false
     # Type: monthly / yearly
     type: monthly
     # Eg: YYYY年MM月
@@ -366,7 +370,7 @@ rightside_bottom:
 
 # Conversion between Traditional and Simplified Chinese
 translate:
-  enable: false
+  enable: true
   # The text of a button
   default: 繁
   # the language of website (1 - Traditional Chinese/ 2 - Simplified Chinese）
@@ -379,7 +383,7 @@ translate:
   msgToSimplifiedChinese: '簡'
 
 # Read Mode
-readmode: true
+readmode: false
 
 # Dark Mode
 darkmode:
@@ -396,7 +400,7 @@ darkmode:
   end:
 
 # Show scroll percent in scroll-to-top button
-rightside_scroll_percent: false
+rightside_scroll_percent: true
 
 # Don't modify the following settings unless you know how they work
 # Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
@@ -432,7 +436,7 @@ copy:
 
 # Need to install the hexo-wordcount plugin
 wordcount:
-  enable: false
+  enable: true
   # Display the word count of the article in post meta
   post_wordcount: true
   # Display the time to read the article in post meta
@@ -477,8 +481,8 @@ math:
 search:
   # Choose: algolia_search / local_search / docsearch
   # leave it empty if you don't need search
-  use:
-  placeholder:
+  use: local_search
+  placeholder: 搜索
 
   # Algolia Search
   algolia_search:
@@ -488,11 +492,11 @@ search:
   # Local Search
   local_search:
     # Preload the search data when the page loads.
-    preload: false
+    preload: true
     # Show top n results per article, show all results by setting to -1
     top_n_per_article: 1
     # Unescape html strings to the readable one.
-    unescape: false
+    unescape: true
     # Enable pagination for search results
     pagination:
       enable: false
